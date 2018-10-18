@@ -16,7 +16,7 @@ export default {
       const customer = await ctx.stripe.customers.create({
         email: user.email,
         source,
-        plan: process.env.PLAN!
+        plan: process.env.STRIPE_PLAN!
       });
 
       stripeId = customer.id;
@@ -29,7 +29,7 @@ export default {
         customer: stripeId,
         items: [
           {
-            plan: process.env.PLAN!
+            plan: process.env.STRIPE_PLAN!
           }
         ]
       });
