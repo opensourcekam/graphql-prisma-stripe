@@ -1,0 +1,16 @@
+enum AccountType {
+  TRIAL
+  PAID
+}
+
+type User {
+  id: ID! @unique
+  name: String @default(value: "")
+  email: String! @unique
+  password: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  type: AccountType! @default(value: "TRIAL")
+  ccLast4: String
+  stripeId: String
+}
